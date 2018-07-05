@@ -12,8 +12,8 @@ let board = [
     [0, 0, 0, 0, 0, 0, 0]
 ]
 
-const playerRedSelections = new Array();
-const playerBlackSelections = new Array();
+var playerRedSelections = new Array();
+var playerBlackSelections = new Array();
 
 
 handleClick = function (event) {
@@ -39,7 +39,7 @@ handleClick = function (event) {
 
             if (checkWinner(currentPlayer)) {
                 alert("Player " + currentPlayer + " wins!")
-                // resetGame();
+                resetGame();
             }
 
             playerSelections.push(parseInt(cell.id));
@@ -68,17 +68,13 @@ function checkWinner(currentPlayer) {
     else{
         return false;
     }
-    
-    
-   
-    
 }
 
 function checkHorizontal(currentPlayer) {
     for (let x = 0; x < board.length; x++) {
         let matches = 0;
         for (let y = 0; y < board[x].length; y++) {
-            //console.log("Matches: " + matches);
+            console.log("Matches: " + matches);
             if (board[x][y] == currentPlayer) {
                 matches++;
             } else {
@@ -161,9 +157,14 @@ function resetGame() {
     ]
     playerRedSelections = new Array();
     playerBlackSelections = new Array();
+
+    var cells = document.querySelectorAll("td");
+
     for (var i = 0; i < cells.length; i++) {
-        cells[i].innerHTML = ""
+        cells[i].style.backgroundColor = "white";
     }
+
+    console.log("reset");
 }
 
 //add event listener
