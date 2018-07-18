@@ -1,7 +1,7 @@
 //initialize variables
 
-let currentPlayer = "red";
-let nextPlayer = "black";
+let currentPlayer = "Blue player";
+let nextPlayer = "Grey player";
 
 let board = [
     [0, 0, 0, 0, 0, 0, 0],
@@ -27,18 +27,18 @@ handleClick = function (event) {
             board[i][column] = currentPlayer;
             cell = document.getElementById(i * 7 + column);
 
-            if (currentPlayer === "red") {
+            if (currentPlayer === "Blue player") {
                 playerSelections = playerRedSelections;
-                cell.style.backgroundColor = "red";
-                nextPlayer = "black";
+                cell.style.backgroundColor = "LightBlue";
+                nextPlayer = "Grey player";
             } else {
                 playerSelections = playerBlackSelections;
-                cell.style.backgroundColor = "black";
-                nextPlayer = "red";
+                cell.style.backgroundColor = "DarkGrey";
+                nextPlayer = "Blue player";
             }
 
             if (checkWinner(currentPlayer)) {
-                alert("Player " + currentPlayer + " wins!")
+                alert(currentPlayer + " wins!")
                 resetGame();
             }
 
